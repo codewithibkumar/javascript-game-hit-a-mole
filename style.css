@@ -3,12 +3,27 @@
     height: 606px;
     display: flex;
     flex-wrap: wrap;
+  
+    
 }
 .square{
     width: 200px;
     height: 200px;
     border: solid 1px black;
+    background-image: url("background.png");
+    background-size: covert;
 }
 .mole{
-    background-color: blue;
+    /* background-color: blue; */
+    background-image: url('hit.png');
+    background-size: cover;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile{
+    align-items: left;
+    margin: 100px;
 }

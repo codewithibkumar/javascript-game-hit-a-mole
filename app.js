@@ -5,6 +5,8 @@ const score = document.querySelector('#score')
 
 let result = 0
 let hitPosition
+let currentTime = 60
+let timerId = null
 
 function randomSquare(){
     squares.forEach(square => {
@@ -32,21 +34,33 @@ squares.forEach(square =>{
 
     })
     // for mobile
-    square.addEventListener("touchstart", () =>{
-        if(square.id == hitPosition){
-            result++;
-            score.textContent = result
-            hitPosition = null
-        }
+    // square.addEventListener("touchstart", () =>{
+    //     if(square.id == hitPosition){
+    //         result++;
+    //         score.textContent = result
+    //         hitPosition = null
+    //     }
 
-    })
+    // })
 })
 
 //randomSquare();
 
 function moveMole(){
-    let timerId = null
+    
     timerId = setInterval(randomSquare,500)
 }
 
 moveMole()
+
+function countdown(){
+    currentTime--;
+    timeLeft.textContent = currentTime;
+    if(currentTime == 0){
+        clearInterval(countDownTimerId)
+        clearInterval(timerId)
+        alert("Game Over! Your Final score is "+result)
+    }
+}
+
+let countDownTimerId = setInterval(countdown, 500)
